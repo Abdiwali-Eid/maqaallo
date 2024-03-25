@@ -11,13 +11,12 @@ function HeroSection() {
       <div className="container">
         <div className="hero__wrapper">
           <div className="left">
-            <h1 className="hero__heading">Explore the world with Technology</h1>
+            <h1 className="hero__heading">Hoyga aqoonta guud</h1>
             <ParagraphText className="hero__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem
-              ipsum dolor sit amet consectetur adipisicing elit
+           Website-kaan waxaad ka helaysaa maqaallo qiima badan oo ku saabsan mowduucyada kala duwan.
             </ParagraphText>
             <Button to="/blogs" tag={Link} className="hero__button">
-              Explore Blogs
+              Arag maqaallada
             </Button>
           </div>
           <div className="right">
