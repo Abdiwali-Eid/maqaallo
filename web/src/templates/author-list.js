@@ -15,6 +15,7 @@ export const AuthorsQuery = graphql`
         slug {
           current
         }
+        _rawBio
         profileImage {
           alt
           asset {

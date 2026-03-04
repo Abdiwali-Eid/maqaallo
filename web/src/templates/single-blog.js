@@ -19,8 +19,11 @@ import Reletes from './xiriir';
 import Fikir from '../components/homePage/Fikir';
 
 export const postQuery = graphql`
-  query SingleBlogQuery($id: String!) {
-    sanityBlog(id: { eq: $id }) {
+  query SingleBlogQuery($slug: String!) {
+    sanityBlog(slug: { current: { eq: $slug } }) {
+      slug {
+        current
+      }
       title
       publishedAt
       _rawBody
@@ -56,7 +59,7 @@ function SingleBlog({ data }) {
   const pageurl = typeof window !== 'undefined' ? window.location.href : '';
   const disqusConfig = {
     url: pageurl,
-    identifier: blog.slug,
+    identifier: blog.slug?.current || blog.title,
     title: blog.title,
   };
 

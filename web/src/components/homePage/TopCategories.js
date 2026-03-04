@@ -1,9 +1,49 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
+import {
+  MdComputer,
+  MdBrush,
+  MdBusinessCenter,
+  MdEco,
+  MdCampaign,
+  MdLightbulb,
+  MdSchool,
+  MdSportsSoccer,
+  MdFavorite,
+  MdPublic,
+  MdMenuBook,
+  MdCategory,
+} from 'react-icons/md';
 import { TopCategoriesStyles } from '../../styles/homePage/TopCategoriesStyles';
-import CategoryGrid from '../category/CategoryGrid';
-import ParagraphText from '../typography/ParagraphText';
-import { SectionTitle } from '../typography/Title';
+
+const categoryIcons = {
+  technology: MdComputer,
+  tech: MdComputer,
+  tiknoolajiyada: MdComputer,
+  design: MdBrush,
+  naqshad: MdBrush,
+  business: MdBusinessCenter,
+  ganacsi: MdBusinessCenter,
+  lifestyle: MdEco,
+  nolol: MdEco,
+  marketing: MdCampaign,
+  suuqgeyn: MdCampaign,
+  innovation: MdLightbulb,
+  hal_abuur: MdLightbulb,
+  education: MdSchool,
+  waxbarasho: MdSchool,
+  'aqoon guud': MdMenuBook,
+  fikir: MdFavorite,
+  sports: MdSportsSoccer,
+  ciyaaraha: MdSportsSoccer,
+  world: MdPublic,
+  adduunka: MdPublic,
+};
+
+function getCategoryIcon(title) {
+  const key = title.toLowerCase().trim();
+  return categoryIcons[key] || MdCategory;
+}
 
 function TopCategories() {
   const data = useStaticQuery(graphql`
@@ -16,18 +56,40 @@ function TopCategories() {
             slug {
               current
             }
-            _rawDescription
           }
         }
       }
     }
   `);
   const categories = data.allSanityFeatured.nodes[0].category;
+
+  if (!categories || categories.length === 0) return null;
+
   return (
     <TopCategoriesStyles>
-      <SectionTitle>Top Categories</SectionTitle>
-
-      <CategoryGrid categories={categories} />
+      <div className="categories-header">
+        <h2 className="categories-title">Explore Categories</h2>
+        <Link to="/categories" className="categories-viewall">
+          View All &rarr;
+        </Link>
+      </div>
+      <div className="categories-grid">
+        {categories.map((cat) => {
+          const Icon = getCategoryIcon(cat.title);
+          return (
+            <Link
+              key={cat.id}
+              to={`/categories/${cat.slug.current}`}
+              className="category-card"
+            >
+              <div className="category-icon">
+                <Icon />
+              </div>
+              <span className="category-name">{cat.title}</span>
+            </Link>
+          );
+        })}
+      </div>
     </TopCategoriesStyles>
   );
 }

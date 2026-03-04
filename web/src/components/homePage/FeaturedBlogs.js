@@ -14,6 +14,7 @@ function FeaturedBlogs() {
             title
             id
             publishedAt
+            _rawExcerpt
             categories {
               title
               slug {
@@ -24,6 +25,12 @@ function FeaturedBlogs() {
               name
               slug {
                 current
+              }
+              profileImage {
+                alt
+                asset {
+                  gatsbyImageData(width: 64, height: 64)
+                }
               }
             }
             coverImage {
@@ -40,18 +47,14 @@ function FeaturedBlogs() {
       }
     }
   `);
-  // console.log(data);
-  const featuredBlogs = data.allSanityFeatured.nodes[0].blogs;
-  console.log(featuredBlogs);
+  const allBlogs = data.allSanityFeatured.nodes[0].blogs;
+  const featuredBlogs = allBlogs.slice(1);
+
+  if (!featuredBlogs || featuredBlogs.length === 0) return null;
 
   return (
     <FeaturedBlogsStyles>
-      <SectionTitle>Featured Blogs</SectionTitle>
-      {/* <ParagraphText className="featuredBlogs__text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, nemo
-        ad provident consectetur quis eaque doloribus et, ducimus earum iste est
-        corporis
-      </ParagraphText> */}
+      <SectionTitle>lastest Blogs</SectionTitle>
       <BlogGrid blogs={featuredBlogs} />
     </FeaturedBlogsStyles>
   );

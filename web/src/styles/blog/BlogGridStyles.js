@@ -3,10 +3,14 @@ import styled from 'styled-components';
 export const BlogGridStyles = styled.div`
   margin-top: 3.5rem;
   display: grid;
-  gap: 5rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  @media only screen and (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 3rem;
+  gap: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+  @media only screen and (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 `;

@@ -10,9 +10,9 @@ const IndexPage = () => (
     <SEO />
     <HeroSection />
     <div className="container">
-      <FeaturedBlogs />
       <TopCategories />
-      <TopAuthors/>
+      <FeaturedBlogs />
+      <TopAuthors />
     </div>
   </>
 );

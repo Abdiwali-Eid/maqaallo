@@ -55,7 +55,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/blogs/${blog.slug.current}`,
       component: singleBlogTemplate,
-      context: { id: blog.id },
+      context: { slug: blog.slug.current },
     });
   });
 

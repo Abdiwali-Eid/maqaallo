@@ -11,6 +11,7 @@ function AuthorGrid({ authors }) {
           name={item.name}
           slug={item.slug}
           profileImage={item.profileImage}
+          bio={item._rawBio}
         />
       ))}
     </AuthorGridStyles>

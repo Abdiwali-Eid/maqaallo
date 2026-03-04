@@ -15,10 +15,17 @@ function Releted() {
           title
           id
           publishedAt
+          _rawExcerpt
           author {
             name
             slug {
               current
+            }
+            profileImage {
+              alt
+              asset {
+                gatsbyImageData(width: 64, height: 64)
+              }
             }
           }
           coverImage {

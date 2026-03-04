@@ -25,6 +25,7 @@ export const query = graphql`
         id
         title
         publishedAt
+        _rawExcerpt
         slug {
           current
         }
@@ -32,6 +33,18 @@ export const query = graphql`
           title
           slug {
             current
+          }
+        }
+        author {
+          name
+          slug {
+            current
+          }
+          profileImage {
+            alt
+            asset {
+              gatsbyImageData(width: 64, height: 64)
+            }
           }
         }
         coverImage {
