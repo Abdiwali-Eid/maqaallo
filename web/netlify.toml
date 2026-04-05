@@ -1,0 +1,18 @@
+# Netlify: set "Base directory" to `web` if the repo root is the parent folder.
+[build]
+  command = "npm run build"
+  publish = "public"
+
+# gatsby-plugin-netlify is registered in gatsby-config.js
+
+# Faster rebuilds: keep Gatsby cache between deploys (enabled by default on Netlify).
+
+# --- Automatic updates from Sanity (do this once in the browser) ---
+# 1. Netlify: Site settings → Build & deploy → Build hooks → Add hook → copy URL.
+# 2. sanity.io/manage → your project → API → Webhooks → Create webhook:
+#    URL: paste the Netlify build hook URL
+#    Dataset: production (or the one you use)
+#    Trigger on: Create, Update, Delete (or at least Update)
+#    HTTP method: POST
+#    API version: v2021-03-25 or default
+# After each publish in Studio, Netlify rebuilds and the site updates (build takes 1–3+ min).

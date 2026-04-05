@@ -28,6 +28,17 @@ export const BlogItemStyles = styled.div`
         transition: 0.4s ease transform;
       }
     }
+
+    .img--placeholder {
+      height: 220px;
+      width: 100%;
+      background: linear-gradient(
+        135deg,
+        #e0e7ff 0%,
+        #cffafe 50%,
+        #fef3c7 100%
+      );
+    }
   }
 
   .card-badge {
@@ -157,7 +168,8 @@ export const BlogItemStyles = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    .img-wrapper .img {
+    .img-wrapper .img,
+    .img-wrapper .img--placeholder {
       height: 180px;
     }
     .card-content {

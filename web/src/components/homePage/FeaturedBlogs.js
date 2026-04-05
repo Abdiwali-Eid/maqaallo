@@ -2,60 +2,81 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { FeaturedBlogsStyles } from '../../styles/homePage/FeaturedBlogsStyles';
 import BlogGrid from '../blog/BlogGrid';
-import ParagraphText from '../typography/ParagraphText';
 import { SectionTitle } from '../typography/Title';
 
 function FeaturedBlogs() {
   const data = useStaticQuery(graphql`
-    {
-      allSanityFeatured(filter: {}) {
+    fragment FeaturedBlogsGridFields on SanityBlog {
+      title
+      id
+      publishedAt
+      _rawExcerpt
+      categories {
+        title
+        slug {
+          current
+        }
+      }
+      author {
+        name
+        slug {
+          current
+        }
+        profileImage {
+          alt
+          asset {
+            gatsbyImageData(width: 64, height: 64)
+          }
+        }
+      }
+      coverImage {
+        alt
+        asset {
+          gatsbyImageData
+        }
+      }
+      slug {
+        current
+      }
+    }
+
+    query FeaturedBlogsQuery {
+      allSanityFeatured(filter: { _id: { eq: "featuredItems" } }) {
         nodes {
           blogs {
-            title
-            id
-            publishedAt
-            _rawExcerpt
-            categories {
-              title
-              slug {
-                current
-              }
-            }
-            author {
-              name
-              slug {
-                current
-              }
-              profileImage {
-                alt
-                asset {
-                  gatsbyImageData(width: 64, height: 64)
-                }
-              }
-            }
-            coverImage {
-              alt
-              asset {
-                gatsbyImageData
-              }
-            }
-            slug {
-              current
-            }
+            ...FeaturedBlogsGridFields
           }
+        }
+      }
+      allSanityBlog(
+        sort: { fields: publishedAt, order: DESC }
+        limit: 8
+      ) {
+        nodes {
+          ...FeaturedBlogsGridFields
         }
       }
     }
   `);
-  const allBlogs = data.allSanityFeatured.nodes[0].blogs;
-  const featuredBlogs = allBlogs.slice(1);
 
-  if (!featuredBlogs || featuredBlogs.length === 0) return null;
+  const featuredBlogs =
+    data.allSanityFeatured.nodes[0]?.blogs?.filter(Boolean) ?? [];
+
+  let gridBlogs = featuredBlogs.slice(1);
+
+  if (gridBlogs.length === 0 && featuredBlogs.length === 1) {
+    const heroId = featuredBlogs[0].id;
+    gridBlogs = data.allSanityBlog.nodes
+      .filter((b) => b.id !== heroId)
+      .slice(0, 3);
+  }
+
+  if (!gridBlogs.length) return null;
 
   return (
     <FeaturedBlogsStyles>
-      <SectionTitle>lastest Blogs</SectionTitle>
-      <BlogGrid blogs={featuredBlogs} />
+      <SectionTitle>Latest Blogs</SectionTitle>
+      <BlogGrid blogs={gridBlogs} />
     </FeaturedBlogsStyles>
   );
 }

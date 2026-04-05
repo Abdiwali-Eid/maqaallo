@@ -25,10 +25,14 @@ function BlogGrid({ blogs }) {
             author={blog.author}
             publishedAt={blog.publishedAt}
             excerpt={extractExcerpt(blog._rawExcerpt)}
-            image={{
-              imageData: blog.coverImage.asset.gatsbyImageData,
-              altText: blog.coverImage.alt,
-            }}
+            image={
+              blog.coverImage?.asset?.gatsbyImageData
+                ? {
+                    imageData: blog.coverImage.asset.gatsbyImageData,
+                    altText: blog.coverImage.alt || blog.title,
+                  }
+                : null
+            }
           />
         ))}
     </BlogGridStyles>

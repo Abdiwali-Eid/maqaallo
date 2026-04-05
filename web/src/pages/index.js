@@ -4,6 +4,7 @@ import HeroSection from '../components/homePage/HeroSection';
 import TopCategories from '../components/homePage/TopCategories';
 import SEO from '../components/seo';
 import TopAuthors from '../components/homePage/TopAuthors';
+import SubscribePoster from '../components/SubscribePoster';
 
 const IndexPage = () => (
   <>
@@ -13,6 +14,7 @@ const IndexPage = () => (
       <TopCategories />
       <FeaturedBlogs />
       <TopAuthors />
+      <SubscribePoster />
     </div>
   </>
 );

@@ -9,6 +9,7 @@
 	],
 	"scripts": {
 		"dev": "gatsby develop",
+		"dev:live": "cross-env ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop",
 		"start": "gatsby develop",
 		"build": "gatsby build",
 		"serve": "gatsby serve",
@@ -45,6 +46,7 @@
 		"styled-components": "^5.3.3"
 	},
 	"devDependencies": {
+		"cross-env": "^7.0.3",
 		"dotenv": "^16.0.0",
 		"gatsby-plugin-netlify": "^5.1.0",
 		"parcel": "^2.9.3"

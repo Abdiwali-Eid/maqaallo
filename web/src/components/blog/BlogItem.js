@@ -8,11 +8,15 @@ function BlogItem({ path, title, image, categories, author, publishedAt, excerpt
   return (
     <BlogItemStyles>
       <Link to={`/blogs/${path}`} className="img-wrapper">
-        <GatsbyImage
-          image={image.imageData}
-          alt={image.altText}
-          className="img"
-        />
+        {image?.imageData ? (
+          <GatsbyImage
+            image={image.imageData}
+            alt={image.altText || title}
+            className="img"
+          />
+        ) : (
+          <div className="img img--placeholder" aria-hidden />
+        )}
         {categories && categories.length > 0 && (
           <span className="card-badge">
             {categories[0].title}

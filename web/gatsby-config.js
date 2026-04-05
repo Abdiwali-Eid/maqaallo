@@ -1,5 +1,9 @@
-require('dotenv').config('./.env');
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
+
 const sanityConfig = require('./sanity-config.js');
+
+const isGatsbyDevelop = process.env.gatsby_executing_command === 'develop';
 
 module.exports = {
   siteMetadata: {
@@ -16,6 +20,13 @@ module.exports = {
       resolve: 'gatsby-source-sanity',
       options: {
         ...sanityConfig,
+        // Live updates while `gatsby develop` runs (listener syncs Sanity → Gatsby).
+        watchMode: isGatsbyDevelop,
+        // Optional: set SANITY_READ_TOKEN in web/.env to preview drafts in dev.
+        token: process.env.SANITY_READ_TOKEN || undefined,
+        overlayDrafts: Boolean(
+          isGatsbyDevelop && process.env.SANITY_READ_TOKEN
+        ),
       },
     },
     {
@@ -140,5 +151,6 @@ module.exports = {
           })),
       },
     },
+    'gatsby-plugin-netlify',
   ],
 };
