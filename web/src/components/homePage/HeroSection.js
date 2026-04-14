@@ -67,6 +67,8 @@ function HeroSection() {
     <HeroSectionStyles>
       <div className="container">
         <div className="hero-card">
+          <div className="hero-glow hero-glow--one" />
+          <div className="hero-glow hero-glow--two" />
           <div className="hero-bg">
             <GatsbyImage
               image={heroBlog.coverImage.asset.gatsbyImageData}
@@ -75,6 +77,7 @@ function HeroSection() {
             />
           </div>
           <div className="hero-content">
+            <span className="hero-kicker">Maqaallo</span>
             <div className="hero-badges">
               {heroBlog.categories &&
                 heroBlog.categories.map((cat) => (
@@ -83,7 +86,7 @@ function HeroSection() {
                   </span>
                 ))}
               <span className="hero-badge hero-badge--featured">
-                Featured Story
+                Qoraal Muuqda
               </span>
             </div>
             <h1 className="hero-title">
@@ -97,7 +100,7 @@ function HeroSection() {
                 to={`/blogs/${heroBlog.slug.current}`}
                 className="hero-cta"
               >
-                Read Full Article{' '}
+                Akhri Qoraalka{' '}
                 <span className="cta-arrow">&rarr;</span>
               </Link>
               {heroBlog.author && (

@@ -7,9 +7,9 @@ const isGatsbyDevelop = process.env.gatsby_executing_command === 'develop';
 
 module.exports = {
   siteMetadata: {
-    title: `TechHub-blog`,
-    siteUrl: `https://techhub-blog.netlify.com`,
-    description: `TechHub Blog is a platform for latest technology news and updates.`,
+    title: `Maqaallo`,
+    siteUrl: `https://maqaallo.netlify.app`,
+    description: `Maqaallo waa madal qoraallo diiradda saarta fikir, tazkiyo, taariikh, aqoon guud, iyo maqaallo kobcinaya qalbiga iyo maskaxda.`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

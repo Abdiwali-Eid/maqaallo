@@ -47,6 +47,22 @@ const GlobalStyles = createGlobalStyle`
   li, ul{
     list-style: none;
   }
+  @media only screen and (max-width: 768px){
+    html{
+      font-size: 9.5px;
+    }
+    .container{
+      width: min(92%, 56rem);
+    }
+  }
+  @media only screen and (max-width: 480px){
+    html{
+      font-size: 9px;
+    }
+    .container{
+      width: calc(100% - 2.4rem);
+    }
+  }
 `;
 
 export default GlobalStyles;

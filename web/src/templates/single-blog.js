@@ -139,6 +139,15 @@ function SingleBlog({ data }) {
               )}
 
               <h1 className="post-title">{blog.title}</h1>
+              {blog.coverImage?.asset?.gatsbyImageData && (
+                <div className="post-cover-inline">
+                  <GatsbyImage
+                    image={blog.coverImage.asset.gatsbyImageData}
+                    alt={blog.coverImage.alt || blog.title}
+                    className="post-cover-inline__image"
+                  />
+                </div>
+              )}
               <hr className="card-divider" />
 
               <div className="meta-row">

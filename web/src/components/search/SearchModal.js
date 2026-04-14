@@ -44,6 +44,17 @@ function Search() {
     }
   }, [isSearchModalOpen]);
 
+  useEffect(() => {
+    if (!isSearchModalOpen) return undefined;
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        closeSearchModal();
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isSearchModalOpen, closeSearchModal]);
+
   const {
     publicStoreURL: blogsPublicStoreURL,
     publicIndexURL: blogsPublicIndexURL,
@@ -91,7 +102,24 @@ function Search() {
   if (!isSearchModalOpen) return null;
   return (
     <SearchModalStyles>
+      <div
+        className="modal__backdrop"
+        role="button"
+        tabIndex={0}
+        aria-label="Xir raadinta"
+        onClick={() => closeSearchModal()}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            closeSearchModal();
+          }
+        }}
+      />
       <div className="modal__container">
+        <div className="modal__head">
+          <p className="modal__eyebrow">Raadi</p>
+          <h2 className="modal__title">Ka hel Maqaallo qoraalka aad raadineyso</h2>
+        </div>
         <ActionButton className="close" onClick={() => closeSearchModal()}>
           <MdClose />
         </ActionButton>

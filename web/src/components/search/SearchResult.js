@@ -34,14 +34,14 @@ function SearchResult({
     categoriesResult.length === 0 &&
     authorsResult.length === 0
   ) {
-    return <ParagraphText>No Result Found.</ParagraphText>;
+    return <ParagraphText>Wax natiijo ah lama helin.</ParagraphText>;
   }
 
   return (
     <>
       {blogsResult.length > 0 && (
         <>
-          <ParagraphText>Blogs</ParagraphText>
+          <ParagraphText>Maqaallo</ParagraphText>
           {blogsResult.map((result) => (
             <BlogSearchResultItem key={result.id} blog={result} />
           ))}
@@ -49,7 +49,7 @@ function SearchResult({
       )}
       {categoriesResult.length > 0 && (
         <>
-          <ParagraphText>Categories</ParagraphText>
+          <ParagraphText>Qaybo</ParagraphText>
           {categoriesResult.map((result) => (
             <CategorySearchResultItem key={result.id} category={result} />
           ))}
@@ -57,7 +57,7 @@ function SearchResult({
       )}
       {authorsResult.length > 0 && (
         <>
-          <ParagraphText>Authors</ParagraphText>
+          <ParagraphText>Qorayaal</ParagraphText>
           {authorsResult.map((result) => (
             <AuthorSearchResultItem key={result.id} author={result} />
           ))}

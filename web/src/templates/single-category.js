@@ -63,7 +63,7 @@ function SingleCategory({ data }) {
   const blogs = data.allSanityBlog.nodes;
 
   return (
-    <PageSpace top={80} bottom={100}>
+    <PageSpace top={112} bottom={100}>
       <SingleCategoryStyles>
         <div className="container">
           <SEO title={category.title} />

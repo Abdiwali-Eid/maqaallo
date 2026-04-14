@@ -63,7 +63,7 @@ function SingleAuthor({ data }) {
   const author = data.sanityAuthor;
   const blogs = data.allSanityBlog.nodes;
   return (
-    <PageSpace top={80} bottom={100}>
+    <PageSpace top={112} bottom={100}>
       <SEO title={author.name} />
       <div className="container">
         <SingleAuthorStyles>

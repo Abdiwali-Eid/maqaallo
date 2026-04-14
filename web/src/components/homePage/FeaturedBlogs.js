@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { FeaturedBlogsStyles } from '../../styles/homePage/FeaturedBlogsStyles';
 import BlogGrid from '../blog/BlogGrid';
+import ScrollReveal from '../ScrollReveal';
 import { SectionTitle } from '../typography/Title';
 
 function FeaturedBlogs() {
@@ -75,8 +76,18 @@ function FeaturedBlogs() {
 
   return (
     <FeaturedBlogsStyles>
-      <SectionTitle>Latest Blogs</SectionTitle>
-      <BlogGrid blogs={gridBlogs} />
+      <ScrollReveal className="section-head">
+        <div className="section-copy">
+          <SectionTitle>Maqaalladii Ugu Dambeeyay</SectionTitle>
+          <p>
+            Akhri qoraalladii ugu dambeeyay ee Maqaallo, oo ka hadlaya fikir,
+            tazkiyo, taariikh, iyo aqoon dhisaysa qalbi iyo garasho.
+          </p>
+        </div>
+      </ScrollReveal>
+      <ScrollReveal className="featured-grid-anim">
+        <BlogGrid blogs={gridBlogs} />
+      </ScrollReveal>
     </FeaturedBlogsStyles>
   );
 }

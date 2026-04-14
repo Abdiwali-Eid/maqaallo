@@ -1,47 +1,77 @@
 import styled from 'styled-components';
 
 export const SubscribePosterStyles = styled.section`
-  margin-top: 3.2rem;
+  @keyframes posterFloat {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -8px, 0);
+    }
+  }
+
+  margin-top: 0.2rem;
   margin-bottom: 1rem;
-  border-radius: 20px;
+  border-radius: 3rem;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(
-    135deg,
-    #1e40af 0%,
-    #2563eb 42%,
-    #0d9488 100%
-  );
+  background:
+    radial-gradient(circle at top right, rgba(20, 184, 166, 0.16), transparent 26%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(242, 248, 247, 0.92));
+  border: 1px solid rgba(148, 163, 184, 0.16);
   box-shadow:
-    0 10px 40px rgba(37, 99, 235, 0.25),
-    0 4px 12px rgba(0, 0, 0, 0.08);
+    0 22px 55px rgba(15, 23, 42, 0.08),
+    0 8px 18px rgba(15, 23, 42, 0.04);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 28px 62px rgba(15, 23, 42, 0.1),
+      0 12px 22px rgba(15, 23, 42, 0.06);
+  }
 
   &::before {
     content: '';
     position: absolute;
     inset: 0;
     background: radial-gradient(
-      circle at 85% 20%,
-      rgba(255, 255, 255, 0.15) 0%,
+      circle at 80% 18%,
+      rgba(255, 255, 255, 0.65) 0%,
       transparent 45%
     );
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 18rem;
+    height: 18rem;
+    right: -4rem;
+    top: -4rem;
+    border-radius: 999px;
+    background: rgba(20, 184, 166, 0.12);
+    filter: blur(4px);
+    animation: posterFloat 8s ease-in-out infinite;
     pointer-events: none;
   }
 
   .subscribe-inner {
     position: relative;
     z-index: 1;
-    padding: 2.8rem 2.4rem;
+    padding: 2.2rem 2.2rem;
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
+    gap: 1.2rem;
 
     @media (min-width: 768px) {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      gap: 2.4rem;
-      padding: 3.2rem 3.6rem;
+      gap: 1.8rem;
+      padding: 2.4rem 2.8rem;
     }
   }
 
@@ -51,31 +81,23 @@ export const SubscribePosterStyles = styled.section`
   }
 
   .subscribe-kicker {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 0.6rem;
+    color: #0f766e;
+    margin-bottom: 0.4rem;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
   .subscribe-title {
-    font-size: clamp(2rem, 4vw, 2.6rem);
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
     font-weight: 800;
-    color: #fff;
-    line-height: 1.2;
-    margin: 0 0 0.8rem;
-    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
-  }
-
-  .subscribe-desc {
-    font-size: 1.5rem;
-    line-height: 1.55;
-    color: rgba(255, 255, 255, 0.92);
+    color: #10231d;
+    line-height: 1.08;
     margin: 0;
-    max-width: 36ch;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Poppins', 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.03em;
   }
 
   .subscribe-form-wrap {
@@ -90,7 +112,13 @@ export const SubscribePosterStyles = styled.section`
   .subscribe-form {
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.6rem;
+    padding: 0.9rem;
+    border-radius: 1.8rem;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
   }
 
   .subscribe-row {
@@ -108,12 +136,12 @@ export const SubscribePosterStyles = styled.section`
     flex: 1;
     border: none;
     border-radius: 12px;
-    padding: 1.2rem 1.4rem;
-    font-size: 1.5rem;
+    padding: 1.15rem 1.3rem;
+    font-size: 1.45rem;
     font-family: 'Inter', system-ui, sans-serif;
     color: #111827;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: none;
     outline: none;
     min-width: 0;
 
@@ -129,22 +157,22 @@ export const SubscribePosterStyles = styled.section`
   .subscribe-btn {
     border: none;
     border-radius: 12px;
-    padding: 1.2rem 1.8rem;
-    font-size: 1.5rem;
+    padding: 1.15rem 1.6rem;
+    font-size: 1.4rem;
     font-weight: 700;
     font-family: 'Inter', system-ui, sans-serif;
     color: #fff;
-    background: linear-gradient(180deg, #f97316 0%, #ea580c 100%);
+    background: linear-gradient(135deg, #14b8a6, #0f766e);
     cursor: pointer;
     white-space: nowrap;
-    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.45);
+    box-shadow: 0 10px 20px rgba(15, 118, 110, 0.22);
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
 
     &:hover {
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(234, 88, 12, 0.5);
+      box-shadow: 0 14px 24px rgba(15, 118, 110, 0.28);
     }
 
     &:active {
@@ -153,11 +181,12 @@ export const SubscribePosterStyles = styled.section`
   }
 
   .subscribe-note {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.05rem;
+    color: #64748b;
     margin: 0;
     line-height: 1.4;
     font-family: 'Inter', system-ui, sans-serif;
+    padding-left: 0.2rem;
   }
 
   .honeypot {
@@ -166,5 +195,51 @@ export const SubscribePosterStyles = styled.section`
     opacity: 0;
     height: 0;
     overflow: hidden;
+  }
+
+  @media only screen and (max-width: 480px) {
+    border-radius: 2rem;
+    margin-bottom: 0.6rem;
+
+    &::after {
+      width: 12rem;
+      height: 12rem;
+      right: -3rem;
+      top: -3rem;
+    }
+
+    .subscribe-inner {
+      padding: 1.6rem 1.4rem;
+      gap: 1rem;
+    }
+
+    .subscribe-title {
+      font-size: 2rem;
+      line-height: 1.12;
+    }
+
+    .subscribe-form {
+      padding: 0.75rem;
+      border-radius: 1.4rem;
+    }
+
+    .subscribe-row {
+      gap: 0.7rem;
+    }
+
+    .subscribe-input,
+    .subscribe-btn {
+      width: 100%;
+    }
+
+    .subscribe-input {
+      padding: 1rem 1.15rem;
+      font-size: 1.35rem;
+    }
+
+    .subscribe-btn {
+      padding: 1rem 1.2rem;
+      font-size: 1.3rem;
+    }
   }
 `;

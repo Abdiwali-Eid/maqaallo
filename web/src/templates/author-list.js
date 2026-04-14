@@ -36,8 +36,8 @@ function AuthorList({ data, pageContext }) {
       <SEO title="Authors" />
       <div className="container">
         <PageHeader
-          title="All Authors"
-          description="This month will bring about the 88th Academy Awards. Starting in 1928, this prestigious award ceremony..."
+          title="Dhammaan Qorayaasha"
+          description="Baro qorayaasha Maqaallo ee wax ka qora fikir, tazkiyo, taariikh, iyo mawduucyo kobcinaya akhlaaqda, garashada, iyo wacyiga."
         />
         <AuthorGrid authors={authors} />
         {numberOfPages > 1 && (

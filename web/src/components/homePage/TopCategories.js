@@ -15,6 +15,7 @@ import {
   MdCategory,
 } from 'react-icons/md';
 import { TopCategoriesStyles } from '../../styles/homePage/TopCategoriesStyles';
+import ScrollReveal from '../ScrollReveal';
 
 const categoryIcons = {
   technology: MdComputer,
@@ -67,29 +68,33 @@ function TopCategories() {
 
   return (
     <TopCategoriesStyles>
-      <div className="categories-header">
-        <h2 className="categories-title">Explore Categories</h2>
-        <Link to="/categories" className="categories-viewall">
-          View All &rarr;
-        </Link>
-      </div>
-      <div className="categories-grid">
-        {categories.map((cat) => {
-          const Icon = getCategoryIcon(cat.title);
-          return (
-            <Link
-              key={cat.id}
-              to={`/categories/${cat.slug.current}`}
-              className="category-card"
-            >
-              <div className="category-icon">
-                <Icon />
-              </div>
-              <span className="category-name">{cat.title}</span>
-            </Link>
-          );
-        })}
-      </div>
+      <ScrollReveal className="categories-heading">
+        <div className="categories-header">
+          <h2 className="categories-title">Qaybaha Maqaallada</h2>
+          <Link to="/categories" className="categories-viewall">
+            View All &rarr;
+          </Link>
+        </div>
+      </ScrollReveal>
+      <ScrollReveal className="categories-grid-anim">
+        <div className="categories-grid">
+          {categories.map((cat) => {
+            const Icon = getCategoryIcon(cat.title);
+            return (
+              <Link
+                key={cat.id}
+                to={`/categories/${cat.slug.current}`}
+                className="category-card"
+              >
+                <div className="category-icon">
+                  <Icon />
+                </div>
+                <span className="category-name">{cat.title}</span>
+              </Link>
+            );
+          })}
+        </div>
+      </ScrollReveal>
     </TopCategoriesStyles>
   );
 }

@@ -3,17 +3,16 @@ import { SubscribePosterStyles } from '../styles/SubscribePosterStyles';
 
 function SubscribePoster({ className }) {
   return (
-    <SubscribePosterStyles className={className} aria-labelledby="subscribe-heading">
+    <SubscribePosterStyles
+      className={className}
+      aria-labelledby="subscribe-heading"
+    >
       <div className="subscribe-inner">
         <div className="subscribe-copy">
           <p className="subscribe-kicker">Newsletter</p>
           <h2 id="subscribe-heading" className="subscribe-title">
-            Hel wararka &amp; maqaallada cusub
+            Hel maqaallada cusub
           </h2>
-          <p className="subscribe-desc">
-            Ku biir liiska emaylka — waxaan kuu soo diri doonaa qoraallada ugu
-            muhiimsan marka la daabaco.
-          </p>
         </div>
         <div className="subscribe-form-wrap">
           <form
@@ -43,9 +42,7 @@ function SubscribePoster({ className }) {
                 Diiwaangeli
               </button>
             </div>
-            <p className="subscribe-note">
-              Ma awoodno spam. Jooji iska xitaa markasta.
-            </p>
+            <p className="subscribe-note">Spam ma dirno.</p>
           </form>
         </div>
       </div>

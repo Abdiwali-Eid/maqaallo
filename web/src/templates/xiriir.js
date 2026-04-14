@@ -60,8 +60,8 @@ function Reletes({ data }) {
       <PageSpace top={80} bottom={100}>
         <div className="container">
           <PageHeader
-            title="All Blog Posts"
-            description="This month will bring about the 88th Academy Awards. Starting in 1928, this prestigious award ceremony..."
+            title="Maqaallo Dheeraad Ah"
+            description="Akhri qoraallo dheeraad ah oo la xiriira fikir, tazkiyo, taariikh, iyo aqoon faa'iido leh oo ka tarjumaya ruuxa iyo jihada Maqaallo."
           />
           <BlogGrid blogs={blogs} />
         </div>

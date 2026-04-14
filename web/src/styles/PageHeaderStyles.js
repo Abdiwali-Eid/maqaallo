@@ -1,18 +1,46 @@
 import styled from 'styled-components';
 
 export const PageHeaderStyles = styled.div`
-  margin: 2rem 0 1rem;
-  max-width: 600px;
+  margin: 0;
+  max-width: 72rem;
 
   h2 {
-    color: #1f2937;
+    color: #10231d;
     padding-left: 0;
+    margin-bottom: 1rem;
+    font-size: clamp(3.2rem, 5vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
   }
 
   p {
-    color: #6b7280;
+    color: #5b6778;
     padding-left: 0;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 1.8;
     font-family: 'Inter', sans-serif;
+    max-width: 60rem;
+  }
+
+  @media only screen and (max-width: 768px) {
+    h2 {
+      font-size: 2.8rem;
+      line-height: 1.12;
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.7;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    h2 {
+      font-size: 2.3rem;
+    }
+
+    p {
+      font-size: 1.45rem;
+    }
   }
 `;

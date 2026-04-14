@@ -12,10 +12,9 @@ function Footer() {
       <div className="container">
         <Logo />
         <ParagraphText className="footer__text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat neque
-          commodi perspiciatis quibusdam delectus voluptas ab eos natus laborum!
-          Veritatis, facilis modi. Ex, adipisci. Ab, atque. Debitis officia qui
-          vero!
+          Maqaallo waa meel lagu wadaago qoraallo ku saabsan fikir, tazkiyo,
+          taariikh, iyo aqoon waxtar leh oo kobcisa fahamka, akhlaaqda, iyo
+          baraaruga bulshada.
         </ParagraphText>
         <ul className="footer__menuList">
           {menu.map((item) => (
@@ -32,8 +31,8 @@ function Footer() {
           ))}
         </ul>
         <ParagraphText className="copyright">
-          © TechHub-Blog Creative {new Date().getFullYear()}. All rights
-          reserved
+          (c) Maqaallo {new Date().getFullYear()}. Dhammaan xuquuqdu way
+          xafidan tahay
         </ParagraphText>
       </div>
     </FooterStyles>

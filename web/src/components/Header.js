@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'gatsby';
+import { useLocation } from '@reach/router';
 import clsx from 'clsx';
 import { MdClose, MdMenu, MdSearch } from 'react-icons/md';
 import HeaderStyles from '../styles/HeaderStyles';
@@ -11,6 +12,7 @@ import { SearchModalContext } from '../contexts/searchModalContext';
 function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { openSearchModal } = useContext(SearchModalContext);
+  const location = useLocation();
 
   useEffect(() => {
     if (isNavOpen) {
@@ -21,12 +23,22 @@ function Header() {
   }, [isNavOpen]);
 
   const handleSearchModalOpen = () => {
+    if (isNavOpen) {
+      setIsNavOpen(false);
+    }
     openSearchModal();
   };
 
   const handleNavItemClick = () => {
     if (isNavOpen) {
       setIsNavOpen(false);
+    }
+  };
+
+  const handleKeyActivate = (event, callback) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      callback();
     }
   };
 
@@ -43,17 +55,23 @@ function Header() {
                 <div
                   className="searchIcon__wrapper"
                   onClick={handleSearchModalOpen}
-                  onKeyDown={handleSearchModalOpen}
+                  onKeyDown={(event) =>
+                    handleKeyActivate(event, handleSearchModalOpen)
+                  }
                   tabIndex={0}
                   role="button"
+                  aria-label="Fur raadinta"
                 >
                   <MdSearch />
                 </div>
               </div>
               <ActionButton
                 className="mobileMenuBtn"
-                onKeyDown={() => setIsNavOpen(true)}
+                onKeyDown={(event) =>
+                  handleKeyActivate(event, () => setIsNavOpen(true))
+                }
                 onClick={() => setIsNavOpen(true)}
+                aria-label="Fur menu-ga"
               >
                 <MdMenu />
               </ActionButton>
@@ -64,7 +82,9 @@ function Header() {
                 role="button"
                 tabIndex={0}
                 className="mobileNavBg"
-                onKeyDown={() => setIsNavOpen(false)}
+                onKeyDown={(event) =>
+                  handleKeyActivate(event, () => setIsNavOpen(false))
+                }
                 onClick={() => setIsNavOpen(false)}
               />
             )}
@@ -72,14 +92,29 @@ function Header() {
               <ActionButton
                 className="mobileMenuCloseBtn"
                 onClick={() => setIsNavOpen(false)}
-                onKeyDown={() => setIsNavOpen(false)}
+                onKeyDown={(event) =>
+                  handleKeyActivate(event, () => setIsNavOpen(false))
+                }
+                aria-label="Xir menu-ga"
               >
                 <MdClose />
               </ActionButton>
+              <div className="mobile-nav-head">
+                <span className="mobile-nav-label">Maqaallo</span>
+                <p className="mobile-nav-text">
+                  Sahami qoraallo ku saabsan fikir, tazkiyo, iyo taariikh.
+                </p>
+              </div>
               <ul>
                 {menu.map((item) => (
                   <li key={item.path}>
-                    <Link to={item.path} onClick={handleNavItemClick}>
+                    <Link
+                      to={item.path}
+                      onClick={handleNavItemClick}
+                      className={clsx(
+                        location.pathname === item.path && 'active'
+                      )}
+                    >
                       {item.title}
                     </Link>
                   </li>
@@ -88,9 +123,12 @@ function Header() {
                   <div
                     className="searchIcon__wrapper"
                     onClick={handleSearchModalOpen}
-                    onKeyDown={handleSearchModalOpen}
+                    onKeyDown={(event) =>
+                      handleKeyActivate(event, handleSearchModalOpen)
+                    }
                     tabIndex={0}
                     role="button"
+                    aria-label="Fur raadinta"
                   >
                     <MdSearch />
                   </div>

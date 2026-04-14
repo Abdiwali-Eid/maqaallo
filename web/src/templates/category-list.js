@@ -35,8 +35,8 @@ function Categories({ data, pageContext }) {
       <PageSpace top={80} bottom={100}>
         <div className="container">
           <PageHeader
-            title="All Categories"
-            description="This month will bring about the 88th Academy Awards. Starting in 1928, this prestigious award ceremony..."
+            title="Dhammaan Qaybaha"
+            description="U sahamin qaybaha kala duwan ee Maqaallo sida fikir, tazkiyo, taariikh, aqoon guud, iyo mowduucyo kale oo xoojinaya fahamka iyo hanuunka."
           />
           <CategoryGrid categories={categories} />
           {numberOfPages > 1 && (

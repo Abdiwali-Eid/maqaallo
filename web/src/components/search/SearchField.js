@@ -7,10 +7,11 @@ function SearchField({ value, setValue, onFocus }) {
     <SearchFieldStyles>
       <input
         type="text"
-        placeholder="Search"
+        placeholder="Raadi maqaal, qoraa, ama qayb"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onFocus={onFocus && onFocus}
+        aria-label="Raadi"
       />
       <FiSearch className="searchIcon" />
     </SearchFieldStyles>

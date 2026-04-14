@@ -2,24 +2,25 @@ import React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import styled from 'styled-components';
 import AuthorGrid from '../author/AuthorGrid';
+import ScrollReveal from '../ScrollReveal';
 
 const TopAuthorsStyles = styled.section`
-  padding: 2rem 0 4rem;
+  padding: 2rem 0 0.4rem;
 
   .authors-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
     margin-bottom: 0.5rem;
   }
 
   .authors-title {
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
-    color: #1f2937;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    color: #10231d;
+    letter-spacing: -0.03em;
   }
 
   .authors-viewall {
@@ -34,6 +35,29 @@ const TopAuthorsStyles = styled.section`
 
     &:hover {
       gap: 8px;
+    }
+  }
+
+  .authors-copy {
+    margin-top: 1rem;
+    max-width: 56rem;
+    font-size: 1.55rem;
+    line-height: 1.8;
+    color: #475569;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .authors-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .authors-title {
+      font-size: 2rem;
+    }
+
+    .authors-copy {
+      font-size: 1.45rem;
     }
   }
 `;
@@ -65,13 +89,21 @@ function TopAuthors() {
 
   return (
     <TopAuthorsStyles>
-      <div className="authors-header">
-        <h2 className="authors-title">Popular Authors</h2>
-        <Link to="/authors" className="authors-viewall">
-          View All &rarr;
-        </Link>
-      </div>
-      <AuthorGrid authors={authors} />
+      <ScrollReveal className="authors-heading">
+        <div className="authors-header">
+          <h2 className="authors-title">Popular Authors</h2>
+          <Link to="/authors" className="authors-viewall">
+            View All &rarr;
+          </Link>
+        </div>
+        <p className="authors-copy">
+          Baro qoraayaasha Maqaallo ee wax ka qora fikir, tazkiyo, taariikh,
+          iyo mowduucyo kobcinaya qalbiga, maskaxda, iyo fahamka bulshada.
+        </p>
+      </ScrollReveal>
+      <ScrollReveal className="authors-grid-anim">
+        <AuthorGrid authors={authors} />
+      </ScrollReveal>
     </TopAuthorsStyles>
   );
 }
