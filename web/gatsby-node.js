@@ -1,3 +1,13 @@
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  createTypes(`
+    type SanityBlog implements Node {
+      audio: SanityFile
+    }
+  `);
+};
+
 exports.createPages = async ({ graphql, actions }) => {
   const postsPerPage = parseInt(process.env.GATSBY_POST_PER_PAGE) || 10;
   // templates path

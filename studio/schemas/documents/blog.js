@@ -49,6 +49,16 @@ export default {
       type: 'customImage',
     },
     {
+      title: 'Audio Narration',
+      name: 'audio',
+      type: 'file',
+      description:
+        'Optional audio file for visitors who prefer to listen to this article.',
+      options: {
+        accept: 'audio/*',
+      },
+    },
+    {
       title: 'Excerpt',
       name: 'excerpt',
       type: 'normalText',

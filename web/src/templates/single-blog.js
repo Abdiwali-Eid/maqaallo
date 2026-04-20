@@ -10,6 +10,7 @@ import MyPortableText from '../components/MyPortableText';
 import SEO from '../components/seo';
 import Releted from '../components/homePage/Releted';
 import Fikir from '../components/homePage/Fikir';
+import PostAudioPlayer from '../components/blog/PostAudioPlayer';
 import RelatedArticles from '../components/blog/RelatedArticles';
 import SubscribePoster from '../components/SubscribePoster';
 import { SingleBlogStyles } from '../styles/blog/SingleBlogStyles';
@@ -23,6 +24,12 @@ export const postQuery = graphql`
       title
       publishedAt
       _rawBody
+      audio {
+        asset {
+          url
+          originalFilename
+        }
+      }
       coverImage {
         asset {
           gatsbyImageData
@@ -103,8 +110,7 @@ function SingleBlog({ data }) {
 
   const authorSlug = blog.author?.slug?.current;
   const authorName = blog.author?.name;
-  const hasProfileImage =
-    blog.author?.profileImage?.asset?.gatsbyImageData;
+  const hasProfileImage = blog.author?.profileImage?.asset?.gatsbyImageData;
 
   const currentSlug = blog.slug.current;
   const currentCategoryIds = useMemo(
@@ -157,7 +163,9 @@ function SingleBlog({ data }) {
                       <div className="meta-author-avatar">
                         <Link to={`/authors/${authorSlug}`}>
                           <GatsbyImage
-                            image={blog.author.profileImage.asset.gatsbyImageData}
+                            image={
+                              blog.author.profileImage.asset.gatsbyImageData
+                            }
                             alt={
                               blog.author.profileImage.alt || authorName || ''
                             }
@@ -203,6 +211,12 @@ function SingleBlog({ data }) {
                 )}
               </div>
             </article>
+
+            <PostAudioPlayer
+              audioUrl={blog.audio?.asset?.url}
+              fileName={blog.audio?.asset?.originalFilename}
+              title={blog.title}
+            />
 
             <div className="post-card post-card--body">
               <MyPortableText value={blog._rawBody} />
