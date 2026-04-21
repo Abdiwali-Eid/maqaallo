@@ -304,8 +304,7 @@ export const HeroSectionStyles = styled.section`
   }
 
   @media only screen and (max-width: 768px) {
-    min-height: 100svh;
-    padding: 72px 0 24px;
+    padding: 72px 0 20px;
     display: flex;
     align-items: stretch;
 
@@ -315,7 +314,7 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-card {
-      min-height: calc(100svh - 96px);
+      min-height: clamp(56rem, 76svh, 68rem);
       flex: 1;
       align-items: center;
       border-radius: 18px;
@@ -377,7 +376,7 @@ export const HeroSectionStyles = styled.section`
 
   @media only screen and (max-width: 640px) {
     .hero-card {
-      min-height: calc(100svh - 96px);
+      min-height: clamp(54rem, 75svh, 66rem);
     }
 
     .hero-content {
@@ -414,7 +413,7 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-card {
-      min-height: calc(100svh - 96px);
+      min-height: clamp(52rem, 74svh, 64rem);
       border-radius: 16px;
     }
 
