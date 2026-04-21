@@ -21,6 +21,8 @@ const GlobalStyles = createGlobalStyle`
   }
   html{
     font-size: 10px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   
   body{
@@ -48,19 +50,13 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
   @media only screen and (max-width: 768px){
-    html{
-      font-size: 9.5px;
-    }
     .container{
-      width: min(92%, 56rem);
+      width: min(calc(100% - 2rem), 56rem);
     }
   }
   @media only screen and (max-width: 480px){
-    html{
-      font-size: 9px;
-    }
     .container{
-      width: calc(100% - 2.4rem);
+      width: calc(100% - 1.6rem);
     }
   }
 `;

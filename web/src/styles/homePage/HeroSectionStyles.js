@@ -304,10 +304,10 @@ export const HeroSectionStyles = styled.section`
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 80px 0 24px;
+    padding: 72px 0 20px;
 
     .hero-card {
-      min-height: 540px;
+      min-height: 500px;
       border-radius: 18px;
     }
 
@@ -367,7 +367,7 @@ export const HeroSectionStyles = styled.section`
 
   @media only screen and (max-width: 640px) {
     .hero-card {
-      min-height: 500px;
+      min-height: 470px;
     }
 
     .hero-content {
@@ -404,13 +404,13 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-card {
-      min-height: 460px;
+      min-height: 430px;
       border-radius: 16px;
     }
 
     .hero-content {
-      padding: 20px 18px;
-      margin: 0 1rem 1rem;
+      padding: 20px 16px;
+      margin: 0 0.8rem 0.8rem;
       border-radius: 1.8rem;
     }
 

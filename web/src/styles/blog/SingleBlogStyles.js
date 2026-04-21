@@ -368,7 +368,7 @@ export const SingleBlogStyles = styled.div`
   @media only screen and (max-width: 768px) {
     .single-blog-inner,
     .single-blog-extras {
-      width: min(94%, 72rem);
+      width: min(calc(100% - 2rem), 72rem);
     }
 
     .single-blog-inner {
@@ -446,11 +446,12 @@ export const SingleBlogStyles = styled.div`
 
   @media only screen and (max-width: 480px) {
     .single-blog-inner {
-      padding-top: 4.8rem;
+      width: calc(100% - 1.6rem);
+      padding-top: 4.6rem;
     }
 
     .single-blog-extras {
-      width: calc(100% - 2.4rem);
+      width: calc(100% - 1.6rem);
       padding-top: 1.8rem;
     }
 

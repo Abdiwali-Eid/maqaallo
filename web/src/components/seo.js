@@ -23,6 +23,10 @@ const SEO = ({ title, description }) => {
 
   return (
     <Helmet title={seo.title}>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+      />
       <meta name="description" content={seo.description} />
     </Helmet>
   );
