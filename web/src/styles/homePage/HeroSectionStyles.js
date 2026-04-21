@@ -304,9 +304,7 @@ export const HeroSectionStyles = styled.section`
   }
 
   @media only screen and (max-width: 768px) {
-    --hero-next-section-peek: 5.6rem;
-
-    min-height: calc(100svh - var(--hero-next-section-peek));
+    min-height: 100svh;
     padding: 72px 0 24px;
     display: flex;
     align-items: stretch;
@@ -317,14 +315,15 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-card {
-      min-height: calc(100svh - 96px - var(--hero-next-section-peek));
+      min-height: calc(100svh - 96px);
       flex: 1;
+      align-items: center;
       border-radius: 18px;
     }
 
     .hero-content {
       padding: 28px 24px;
-      margin: 0 1.6rem 1.6rem;
+      margin: 0 1.6rem;
       border-radius: 2.2rem;
       max-width: none;
     }
@@ -378,12 +377,12 @@ export const HeroSectionStyles = styled.section`
 
   @media only screen and (max-width: 640px) {
     .hero-card {
-      min-height: calc(100svh - 96px - var(--hero-next-section-peek));
+      min-height: calc(100svh - 96px);
     }
 
     .hero-content {
       padding: 24px 20px;
-      margin: 0 1.2rem 2rem;
+      margin: 0 1.2rem;
     }
 
     .hero-title {
@@ -399,8 +398,6 @@ export const HeroSectionStyles = styled.section`
   }
 
   @media only screen and (max-width: 480px) {
-    --hero-next-section-peek: 6.4rem;
-
     .hero-kicker,
     .hero-badge--featured {
       display: none;
@@ -417,13 +414,13 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-card {
-      min-height: calc(100svh - 96px - var(--hero-next-section-peek));
+      min-height: calc(100svh - 96px);
       border-radius: 16px;
     }
 
     .hero-content {
       padding: 20px 16px;
-      margin: 0 0.8rem 2.4rem;
+      margin: 0 0.8rem;
       border-radius: 1.8rem;
     }
 
