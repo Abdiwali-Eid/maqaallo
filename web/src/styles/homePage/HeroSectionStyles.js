@@ -304,7 +304,9 @@ export const HeroSectionStyles = styled.section`
   }
 
   @media only screen and (max-width: 768px) {
-    min-height: 100svh;
+    --hero-next-section-peek: 5.6rem;
+
+    min-height: calc(100svh - var(--hero-next-section-peek));
     padding: 72px 0 24px;
     display: flex;
     align-items: stretch;
@@ -315,7 +317,7 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-card {
-      min-height: calc(100svh - 96px);
+      min-height: calc(100svh - 96px - var(--hero-next-section-peek));
       flex: 1;
       border-radius: 18px;
     }
@@ -376,12 +378,12 @@ export const HeroSectionStyles = styled.section`
 
   @media only screen and (max-width: 640px) {
     .hero-card {
-      min-height: calc(100svh - 96px);
+      min-height: calc(100svh - 96px - var(--hero-next-section-peek));
     }
 
     .hero-content {
       padding: 24px 20px;
-      margin: 0 1.2rem 1.2rem;
+      margin: 0 1.2rem 2rem;
     }
 
     .hero-title {
@@ -397,6 +399,8 @@ export const HeroSectionStyles = styled.section`
   }
 
   @media only screen and (max-width: 480px) {
+    --hero-next-section-peek: 6.4rem;
+
     .hero-kicker,
     .hero-badge--featured {
       display: none;
@@ -413,13 +417,13 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-card {
-      min-height: calc(100svh - 96px);
+      min-height: calc(100svh - 96px - var(--hero-next-section-peek));
       border-radius: 16px;
     }
 
     .hero-content {
       padding: 20px 16px;
-      margin: 0 0.8rem 0.8rem;
+      margin: 0 0.8rem 2.4rem;
       border-radius: 1.8rem;
     }
 
