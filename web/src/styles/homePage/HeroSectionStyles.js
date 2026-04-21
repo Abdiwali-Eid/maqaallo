@@ -304,10 +304,19 @@ export const HeroSectionStyles = styled.section`
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 72px 0 20px;
+    min-height: 100svh;
+    padding: 72px 0 24px;
+    display: flex;
+    align-items: stretch;
+
+    .container {
+      display: flex;
+      align-items: stretch;
+    }
 
     .hero-card {
-      min-height: 500px;
+      min-height: calc(100svh - 96px);
+      flex: 1;
       border-radius: 18px;
     }
 
@@ -328,19 +337,19 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-title {
-      font-size: 2.9rem;
+      font-size: 3.1rem;
       max-width: 14ch;
       margin-bottom: 12px;
     }
 
     .hero-excerpt {
-      font-size: 1.45rem;
+      font-size: 1.55rem;
       margin-bottom: 24px;
       -webkit-line-clamp: 2;
     }
 
     .hero-cta {
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       padding: 12px 22px;
     }
 
@@ -367,7 +376,7 @@ export const HeroSectionStyles = styled.section`
 
   @media only screen and (max-width: 640px) {
     .hero-card {
-      min-height: 470px;
+      min-height: calc(100svh - 96px);
     }
 
     .hero-content {
@@ -376,12 +385,12 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-title {
-      font-size: 2.6rem;
+      font-size: 2.8rem;
       max-width: 12ch;
     }
 
     .hero-excerpt {
-      font-size: 1.35rem;
+      font-size: 1.45rem;
       line-height: 1.65;
       margin-bottom: 20px;
     }
@@ -398,13 +407,13 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-title {
-      font-size: 2.3rem;
+      font-size: 2.55rem;
       max-width: 12ch;
       line-height: 1.08;
     }
 
     .hero-card {
-      min-height: 430px;
+      min-height: calc(100svh - 96px);
       border-radius: 16px;
     }
 
@@ -420,12 +429,12 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-excerpt {
-      font-size: 1.25rem;
+      font-size: 1.4rem;
       margin-bottom: 16px;
     }
 
     .hero-cta {
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       padding: 1.2rem 1.6rem;
       border-radius: 1.6rem;
     }
@@ -436,11 +445,11 @@ export const HeroSectionStyles = styled.section`
     }
 
     .hero-author-name {
-      font-size: 1.25rem;
+      font-size: 1.35rem;
     }
 
     .hero-author-meta {
-      font-size: 1.05rem;
+      font-size: 1.15rem;
     }
 
     .hero-bottom {
