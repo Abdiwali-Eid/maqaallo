@@ -87,8 +87,7 @@ function FeaturedBlogs() {
         <div className="section-copy">
           <SectionTitle>Maqaalladii Ugu Dambeeyay</SectionTitle>
           <p>
-            Akhri qoraalladii ugu dambeeyay ee Maqaallo, oo ka hadlaya fikir,
-            tazkiyo, taariikh, iyo aqoon dhisaysa qalbi iyo garasho.
+            Akhri qoraalladii ugu dambeeyay ee Maqaallo la soo galiyay oo ku saabsan mowduucyo kala duwan. 
           </p>
         </div>
       </ScrollReveal>

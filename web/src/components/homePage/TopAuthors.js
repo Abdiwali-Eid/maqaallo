@@ -104,8 +104,7 @@ function TopAuthors() {
           </Link>
         </div>
         <p className="authors-copy">
-          Baro qoraayaasha Maqaallo ee wax ka qora fikir, tazkiyo, taariikh,
-          iyo mowduucyo kobcinaya qalbiga, maskaxda, iyo fahamka bulshada.
+          Baro qoraayaasha Maqaallo ee wax ka qora mowduucyada kala duwan ee kobcinaya garaadka bulshada. 
         </p>
       </ScrollReveal>
       <ScrollReveal className="authors-grid-anim">
