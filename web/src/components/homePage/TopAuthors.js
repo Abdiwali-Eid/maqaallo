@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import styled from 'styled-components';
 import AuthorGrid from '../author/AuthorGrid';
+import { AuthorSectionPlaceholder } from '../placeholders/SectionPlaceholders';
 import ScrollReveal from '../ScrollReveal';
 
 const TopAuthorsStyles = styled.section`
@@ -85,7 +86,13 @@ function TopAuthors() {
   `);
   const authors = data.allSanityAuthor.nodes;
 
-  if (!authors || authors.length === 0) return null;
+  if (!authors || authors.length === 0) {
+    return (
+      <TopAuthorsStyles>
+        <AuthorSectionPlaceholder />
+      </TopAuthorsStyles>
+    );
+  }
 
   return (
     <TopAuthorsStyles>

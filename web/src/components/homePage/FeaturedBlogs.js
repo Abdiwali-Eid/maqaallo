@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { FeaturedBlogsStyles } from '../../styles/homePage/FeaturedBlogsStyles';
 import BlogGrid from '../blog/BlogGrid';
+import { BlogSectionPlaceholder } from '../placeholders/SectionPlaceholders';
 import ScrollReveal from '../ScrollReveal';
 import { SectionTitle } from '../typography/Title';
 
@@ -72,7 +73,13 @@ function FeaturedBlogs() {
       .slice(0, 3);
   }
 
-  if (!gridBlogs.length) return null;
+  if (!gridBlogs.length) {
+    return (
+      <FeaturedBlogsStyles>
+        <BlogSectionPlaceholder />
+      </FeaturedBlogsStyles>
+    );
+  }
 
   return (
     <FeaturedBlogsStyles>

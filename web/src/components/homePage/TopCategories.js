@@ -15,6 +15,7 @@ import {
   MdCategory,
 } from 'react-icons/md';
 import { TopCategoriesStyles } from '../../styles/homePage/TopCategoriesStyles';
+import { CategorySectionPlaceholder } from '../placeholders/SectionPlaceholders';
 import ScrollReveal from '../ScrollReveal';
 
 const categoryIcons = {
@@ -62,9 +63,15 @@ function TopCategories() {
       }
     }
   `);
-  const categories = data.allSanityFeatured.nodes[0].category;
+  const categories = data.allSanityFeatured.nodes[0]?.category;
 
-  if (!categories || categories.length === 0) return null;
+  if (!categories || categories.length === 0) {
+    return (
+      <TopCategoriesStyles>
+        <CategorySectionPlaceholder />
+      </TopCategoriesStyles>
+    );
+  }
 
   return (
     <TopCategoriesStyles>
