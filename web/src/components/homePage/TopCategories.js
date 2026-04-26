@@ -68,7 +68,11 @@ function TopCategories() {
 
   return (
     <TopCategoriesStyles>
-      <ScrollReveal className="categories-heading">
+      <ScrollReveal
+        className="categories-heading"
+        threshold={0.01}
+        rootMargin="0px 0px 35% 0px"
+      >
         <div className="categories-header">
           <h2 className="categories-title">Qaybaha Maqaallada</h2>
           <Link to="/categories" className="categories-viewall">
@@ -76,7 +80,11 @@ function TopCategories() {
           </Link>
         </div>
       </ScrollReveal>
-      <ScrollReveal className="categories-grid-anim">
+      <ScrollReveal
+        className="categories-grid-anim"
+        threshold={0.01}
+        rootMargin="0px 0px 35% 0px"
+      >
         <div className="categories-grid">
           {categories.map((cat) => {
             const Icon = getCategoryIcon(cat.title);

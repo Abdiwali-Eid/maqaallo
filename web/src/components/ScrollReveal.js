@@ -5,7 +5,7 @@ function ScrollReveal({
   children,
   className,
   threshold = 0.18,
-  rootMargin = '0px 0px -10% 0px',
+  rootMargin = '0px 0px 18% 0px',
   mountOnVisible = false,
 }) {
   const ref = useRef(null);

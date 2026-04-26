@@ -142,7 +142,7 @@ export const TopCategoriesStyles = styled.section`
   }
 
   @media only screen and (max-width: 768px) {
-    padding: 3rem 0 1.5rem;
+    padding: 2.4rem 0 1.5rem;
 
     .categories-header {
       align-items: flex-start;
@@ -183,7 +183,7 @@ export const TopCategoriesStyles = styled.section`
   }
 
   @media only screen and (max-width: 480px) {
-    padding: 2.4rem 0 1.2rem;
+    padding: 1.8rem 0 1.2rem;
 
     .categories-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
