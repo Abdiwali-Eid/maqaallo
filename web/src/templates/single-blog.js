@@ -8,8 +8,6 @@ import { FiArrowLeft, FiCalendar, FiUser } from 'react-icons/fi';
 import PageSpace from '../components/PageSpace';
 import MyPortableText from '../components/MyPortableText';
 import SEO from '../components/seo';
-import Releted from '../components/homePage/Releted';
-import Fikir from '../components/homePage/Fikir';
 import PostAudioPlayer from '../components/blog/PostAudioPlayer';
 import RelatedArticles from '../components/blog/RelatedArticles';
 import SubscribePoster from '../components/SubscribePoster';
@@ -234,17 +232,6 @@ function SingleBlog({ data }) {
           </div>
         </PageSpace>
       </SingleBlogStyles>
-      {blog.categories.map((item) => (
-        <span key={item.slug.current}>
-          {item.title === 'Fikir' ? (
-            <Fikir />
-          ) : item.title === 'Aqoon guud' ? (
-            <Releted />
-          ) : (
-            <p>" "</p>
-          )}
-        </span>
-      ))}
     </div>
   );
 }
